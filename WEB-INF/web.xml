@@ -1,0 +1,8 @@
+<servlet>
+    <servlet-name>router</servlet-name>
+    <servlet-class>core.RouterServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>router</servlet-name>
+    <url-pattern>/*</url-pattern>  <!-- Toutes les URLs passent ici -->
+</servlet-mapping>
