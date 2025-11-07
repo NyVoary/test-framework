@@ -18,16 +18,10 @@
     <!-- Optionnel : routeur pour URLs inconnues -->
     <servlet>
         <servlet-name>RouterServlet</servlet-name>
-        <servlet-class>core.RouterServlet</servlet-class>
+        <servlet-class>servlet.RouterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RouterServlet</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
-
-    <!-- Index.html comme page d’accueil -->
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-    </welcome-file-list>
-
 </web-app>

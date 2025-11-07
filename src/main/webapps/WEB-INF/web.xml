@@ -18,7 +18,7 @@
     <!-- Optionnel : routeur pour URLs inconnues -->
     <servlet>
         <servlet-name>RouterServlet</servlet-name>
-        <servlet-class>core.RouterServlet</servlet-class>
+        <servlet-class>servlet.RouterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RouterServlet</servlet-name>
