@@ -15,10 +15,15 @@
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
 
-    <!-- Optionnel : routeur pour URLs inconnues -->
+    <!-- Framework RouterServlet -->
     <servlet>
         <servlet-name>RouterServlet</servlet-name>
         <servlet-class>servlet.RouterServlet</servlet-class>
+        <init-param>
+            <param-name>controller-package</param-name>
+            <param-value></param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>RouterServlet</servlet-name>

@@ -59,8 +59,16 @@ call "%TOMCAT_HOME%\bin\shutdown.bat"
 timeout /t 3 /nobreak >nul
 call "%TOMCAT_HOME%\bin\startup.bat"
 
-echo ✅ Déploiement terminé !
-echo Index : http://localhost:8080/%APP_NAME%/
-echo Servlet : http://localhost:8080/%APP_NAME%/hello
+REM Après la création du WAR, vérifiez son contenu
+echo Vérification du contenu du WAR...
+cd "%BUILD_DIR%"
+jar tf "%WAR_FILE%"
 
+echo.
+echo ✅ Déploiement terminé !
+echo 📍 URLs de test :
+echo    Servlet classique : http://localhost:8080/%APP_NAME%/hello
+echo    Framework route   : http://localhost:8080/%APP_NAME%/test
+echo    Framework params  : http://localhost:8080/%APP_NAME%/user/123
+echo    URL inconnue      : http://localhost:8080/%APP_NAME%/unknown
 endlocal
