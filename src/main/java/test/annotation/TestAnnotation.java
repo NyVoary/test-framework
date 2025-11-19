@@ -1,26 +1,28 @@
 package test.annotation;
 
-import core.MyAnnotation;
+import core.annotation.Controller;
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
 
 public class TestAnnotation {
-    @MyAnnotation(value = "/hello")
-    public void hello() {
-        System.out.println("Méthode hello appelée !");
-    }
-
-    @MyAnnotation(value = "/bye")
-    public void bye() {
-        System.out.println("Méthode bye appelée !");
-    }
-
     public static void main(String[] args) throws Exception {
-        TestAnnotation obj = new TestAnnotation();
-        for (Method m : TestAnnotation.class.getDeclaredMethods()) {
-            if (m.isAnnotationPresent(MyAnnotation.class)) {
-                MyAnnotation ann = m.getAnnotation(MyAnnotation.class);
-                System.out.println("Méthode " + m.getName() + " liée à l'URL : " + ann.value());
-                m.invoke(obj);
+        // Liste manuelle des classes à scanner (Java ne permet pas de lister dynamiquement sans lib externe)
+        List<Class<?>> classes = Arrays.asList(
+            HelloController.class,
+            ByeController.class
+        );
+
+        for (Class<?> clazz : classes) {
+            if (clazz.isAnnotationPresent(Controller.class)) {
+                Controller ctrlAnn = clazz.getAnnotation(Controller.class);
+                System.out.println("Classe " + clazz.getSimpleName() + " annotée @Controller, value=" + ctrlAnn.value());
+
+                Object instance = clazz.getDeclaredConstructor().newInstance();
+                for (Method m : clazz.getDeclaredMethods()) {
+                    System.out.println("  -> Méthode : " + m.getName());
+                    m.invoke(instance);
+                }
             }
         }
     }

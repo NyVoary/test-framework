@@ -17,7 +17,7 @@ echo [1/2] Compilation de TestAnnotation...
 
 javac -d build/classes ^
   -cp "lib\Framework.jar" ^
-  src\main\java\test\annotation\TestAnnotation.java
+  src\main\java\test\annotation\*.java
 
 IF %ERRORLEVEL% NEQ 0 (
     echo ERREUR: Echec compilation TestAnnotation
@@ -28,7 +28,7 @@ echo ✓ Compilation OK : build/classes/test/annotation/*.class
 
 
 REM ============================================================
-REM 3) Lancer TestAnnotation
+REM 2) Lancer TestAnnotation
 REM ============================================================
 
 echo [2/2] Execution de test.annotation.TestAnnotation ...
