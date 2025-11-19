@@ -10,7 +10,7 @@
     <!-- Activation de la servlet du framework -->
     <servlet>
         <servlet-name>FrontServlet</servlet-name>
-        <servlet-class>core.FrontServlet</servlet-class>
+        <servlet-class>core.servlet.FrontServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
